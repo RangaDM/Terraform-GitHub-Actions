@@ -5,5 +5,4 @@
 crash.log
 
 # Ignore variables files containing sensitive data
-*.tfvars
 *.tfvars.json
