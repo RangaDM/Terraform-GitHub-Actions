@@ -1,8 +1,12 @@
-name: 'Terraform-EC2-Creation'
+name: 'Terraform EC2 Creation'
 
 on:
   workflow_dispatch:
     inputs:
+      tfvars_file:
+        description: 'Path to the .tfvars file'
+        required: true
+        default: 'terraform.tfvars'
       action:
         type: choice
         description: 'Terraform Action'
@@ -65,14 +69,14 @@ jobs:
       - name: Terraform Plan
         if: ${{ github.event.inputs.action == 'plan' }}
         run: |
-          terraform plan -input=false
+          terraform plan -var-file=${{ github.event.inputs.tfvars_file }} -input=false
 
       - name: Terraform Apply
         if: ${{ github.event.inputs.action == 'apply' }}
         run: |
-          terraform apply -auto-approve -input=false
+          terraform apply -auto-approve -var-file=${{ github.event.inputs.tfvars_file }} -input=false
 
       - name: Terraform Destroy
         if: ${{ github.event.inputs.action == 'destroy' }}
         run: |
-          terraform destroy -auto-approve -input=false
+          terraform destroy -auto-approve -var-file=${{ github.event.inputs.tfvars_file }} -input=false
