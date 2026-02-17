@@ -15,7 +15,7 @@ terraform {
     key            = "ec2-testing/terraform.tfstate"          # Path inside the bucket
     region         = "us-east-1"                              # REPLACE THIS
     encrypt        = true
-    dynamodb_table = "my-terraform-lock-table"                # REPLACE THIS
+    dynamodb_table = "my-terraform-lock-table2"                # REPLACE THIS
   }
 }
 
