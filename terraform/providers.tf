@@ -11,11 +11,11 @@ terraform {
   # REMOTE BACKEND CONFIGURATION
   # Replace the bucket, region, and table with your actual pre-created values.
   backend "s3" {
-    bucket         = "my-terraform-state-bucket-unique-123" # REPLACE THIS
-    key            = "ec2-testing/terraform.tfstate"          # Path inside the bucket
-    region         = "us-east-1"                              # REPLACE THIS
+    bucket         = "my-terraform-state-bucket-unique-123"
+    key            = "ec2-testing/terraform.tfstate"
+    region         = "us-east-1"
     encrypt        = true
-    dynamodb_table = "my-terraform-lock-table2"                # REPLACE THIS
+    dynamodb_table = "my-terraform-lock-table2"
   }
 }
 
